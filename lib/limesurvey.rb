@@ -1,5 +1,5 @@
 require "limesurvey/version"
-
+require "net/http"
 module Limesurvey
     class API
       def initialize(service_url)
@@ -24,7 +24,11 @@ module Limesurvey
 
     class JSONRPCError < RuntimeError; end
 
-    def get_session_key(LIMESURVEY_USERNAME,LIMESURVEY_PASSWORD)
-    	
+    def get_session_key
+    	Limesurvey::API.new
+    end
+
+    def release_session_key(session_key)
+
     end
 end
