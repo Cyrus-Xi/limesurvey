@@ -50,6 +50,7 @@ Change the url and protocol to match your settings.
 
 ## Example Helpers
 Gets and returns participant token properties
+
 	def limesurvey_get_participant_properties(sid, tid, property)
 	    #@lime_survey_api = LimeSurvey::API.new(LIMESURVEY_API_URL)
 	    #@session_key = @lime_survey_api.get_session_key(LIMESURVEY_USERNAME,LIMESURVEY_PASSWORD)
@@ -59,13 +60,15 @@ Gets and returns participant token properties
 	    response = JSON.parse(participant.to_json)
 	    return response[property]
 	end
-Gets and returns the Survey Title
-	def get_limesurvey_title(surveys, sid)
-	    surveys.each do |item|
-	      survey = JSON.parse(item.to_json)	      
-	      if sid == survey["sid"]
-	      	return survey["surveyls_title"] 
 
-	      end
-	    end
-	end
+Gets and returns the Survey Title
+
+		def get_limesurvey_title(surveys, sid)
+		    surveys.each do |item|
+		      survey = JSON.parse(item.to_json)	      
+		      if sid == survey["sid"]
+		      	return survey["surveyls_title"] 
+	
+		      end
+		    end
+		end
